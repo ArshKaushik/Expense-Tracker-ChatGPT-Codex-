@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Personal Finance</p>
+          <h1>Expense Tracker</h1>
+          <p class="subtitle">Track spending with a clean, focused workflow.</p>
+        </div>
+        <button id="clearAll" class="btn ghost">Clear All</button>
+      </header>
+
+      <section class="grid">
+        <article class="card form-card">
+          <h2>Add Expense</h2>
+          <form id="expenseForm" novalidate>
+            <label>
+              Description
+              <input id="description" type="text" maxlength="60" placeholder="Coffee, Groceries, Rent..." required />
+            </label>
+            <label>
+              Amount ($)
+              <input id="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required />
+            </label>
+            <label>
+              Category
+              <select id="category" required>
+                <option value="">Select</option>
+                <option>Food</option>
+                <option>Housing</option>
+                <option>Transportation</option>
+                <option>Utilities</option>
+                <option>Health</option>
+                <option>Subscriptions</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <button type="submit" class="btn primary">Add Expense</button>
+            <p id="formError" class="form-error" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="card summary-card">
+          <h2>Overview</h2>
+          <div class="summary-grid">
+            <div>
+              <p>Total Spent</p>
+              <strong id="totalSpent">$0.00</strong>
+            </div>
+            <div>
+              <p>This Month</p>
+              <strong id="monthSpent">$0.00</strong>
+            </div>
+            <div>
+              <p>Top Category</p>
+              <strong id="topCategory">—</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="card list-card">
+        <div class="list-header">
+          <h2>Recent Expenses</h2>
+          <select id="filterCategory" aria-label="Filter by category">
+            <option value="all">All Categories</option>
+            <option>Food</option>
+            <option>Housing</option>
+            <option>Transportation</option>
+            <option>Utilities</option>
+            <option>Health</option>
+            <option>Subscriptions</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <ul id="expenseList" class="expense-list"></ul>
+        <p id="emptyState" class="empty-state">No expenses yet. Add your first one above.</p>
+      </section>
+    </main>
+
+    <template id="expenseItemTemplate">
+      <li class="expense-item">
+        <div>
+          <h3></h3>
+          <p class="meta"></p>
+        </div>
+        <div class="expense-actions">
+          <strong class="amount"></strong>
+          <button class="btn icon" type="button" aria-label="Delete expense">✕</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
