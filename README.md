@@ -1,6 +1,8 @@
 # Expense Tracker
 
 A modern, minimal expense tracker built with vanilla HTML, CSS, and JavaScript.
+<img width="1047" height="808" alt="Screenshot 2026-03-25 at 7 53 23 PM" src="https://github.com/user-attachments/assets/7ca3550e-abf4-4722-a7b0-37318f5ffad8" />
+
 
 ## Features
 
